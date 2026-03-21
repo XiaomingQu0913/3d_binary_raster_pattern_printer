@@ -3,9 +3,9 @@
 
 <table>
   <tr>
-    <td align="center"><img src="doc/mask.png" height="200px" style="object-fit:contain" alt="二值化图案"/><br/>输入字符</td>
-    <td align="center"><img src="doc/previews.png" height="200px" style="object-fit:contain" alt="3D打印预览"/><br/>二值化图案</td>
-    <td align="center"><img src="doc/photo.jpg" height="200px" style="object-fit:contain" alt="实物"/><br/>3D打印预览</td>
+    <td align="center"><img src="doc/mask.png" height="200px" style="object-fit:contain" alt="二值化图案"/><br/>二值化图案</td>
+    <td align="center"><img src="doc/previews.png" height="200px" style="object-fit:contain" alt="3D打印预览"/><br/>3D打印预览</td>
+    <td align="center"><img src="doc/photo.jpg" height="200px" style="object-fit:contain" alt="实物"/><br/>实物</td>
   </tr>
 </table>
 
