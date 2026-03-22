@@ -19,16 +19,12 @@ def extract_contour(mask: np.ndarray):
     for i, (contour, (next_, prev, child, parent)) in enumerate(
         zip(contours, hierarchy)
     ):
-        pts = contour[:, 0, :]  # (N, 2) xy
+        pts = contour[:, 0, :][
+            ::-1
+        ]  # findContours returns CCW outer boundary when viewed from image front (Y-down); viewed from 3D top (Y-up), this becomes CW, so reverse
         if parent == -1:
-            # outer boundary: ensure CCW
-            if cv.contourArea(contour, oriented=True) > 0:
-                pts = pts[::-1]
             outer_list.append(pts)
         else:
-            # inner boundary (hole): ensure CW
-            if cv.contourArea(contour, oriented=True) < 0:
-                pts = pts[::-1]
             inner_list.append(pts)
     outer_list = [
         cv.approxPolyDP(outer, epsilon=1.0, closed=True).reshape(-1, 2)

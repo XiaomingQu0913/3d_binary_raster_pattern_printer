@@ -21,15 +21,18 @@ def test_image1(file_path: str):
     mask = labels == largest
     return mask
 
-def test_image1_with_hole_multi_polygons(file_path:str):
+
+def test_image1_with_hole_multi_polygons(file_path: str):
     img = cv.imread(file_path, cv.IMREAD_GRAYSCALE)
     mask = cv.inRange(img, 0, 50)
     return mask
+
 
 def test_image1_inverse(file_path: str):
     img = cv.imread(file_path, cv.IMREAD_GRAYSCALE)
     mask = cv.inRange(img, 200, 255)
     return mask
+
 
 if __name__ == "__main__":
     import trimesh
@@ -38,12 +41,11 @@ if __name__ == "__main__":
     # mask = test_image2(file_path)
 
     file_path = "example/chun/image1.png"
-    # mask = test_image1(file_path)
+    mask = test_image1(file_path)
     # mask = test_image1_with_hole_multi_polygons(file_path)
     mask = test_image1_inverse(file_path)
 
-
-    vertices, faces = gen_mesh(mask, 200, 1.0)
+    vertices, faces = gen_mesh(mask, 200, 5.0)
     mesh = trimesh.Trimesh(vertices=vertices, faces=faces)
     mesh.export("example/chun/chun.stl")
     shit = 0
